@@ -22,6 +22,13 @@ namespace Biblioteca.LivroAPI.Repository
             List<Livro> livros = await _context.Livros.ToListAsync();
             return _mapper.Map<List<LivroVO>>(livros);
         }
+        
+        public async Task<LivroVO> FindById(long id)
+        {
+            Livro livro = await _context.Livros.FindAsync(id);
+            return _mapper.Map<LivroVO>(livro);
+
+        }
 
         public async Task<LivroVO> Create(LivroVO vo) //Criar um novo livro
         {
@@ -38,9 +45,20 @@ namespace Biblioteca.LivroAPI.Repository
             return _mapper.Map<LivroVO>(livro); //Retornar o resultado do mapeamento
         }
 
-        public Task<bool> Delete(long id)
+        public async Task<bool> Delete(long id)
         {
-            
+            try
+            {
+                Livro livro = await _context.Livros.FindAsync(id);
+                if (livro == null) return false;
+                _context.Livros.Remove(livro);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

@@ -42,6 +42,8 @@ namespace Biblioteca.LivroAPI.Model
         [StringLength(100)]
         public string Descricao { get; set; }
 
+        [Column("quantidade")]
+        public int Quantidade { get; set; } = 0;
 
     }
 }

@@ -25,7 +25,9 @@ namespace Biblioteca.LivroAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<LivroVO>> FindById(long id)
         {
-
+            var livro = await _repository.FindById(id);
+            if(livro == null) return NotFound();
+            return Ok(livro);
         }
 
         [HttpPost]

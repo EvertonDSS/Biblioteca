@@ -1,6 +1,6 @@
-﻿namespace Biblioteca.LivroAPI.Data.ValueObjects
+﻿namespace Biblioteca.Web.Models
 {
-    public class LivroVO
+    public class Livro
     {
         public long Id { get; set; }
         public string Titulo { get; set; }
@@ -10,6 +10,6 @@
         public string Editora { get; set; }
         public string AnoPublicacao { get; set; }
         public string ImageUrl { get; set; }
-        public int Quantidade { get; set; }
+
     }
 }

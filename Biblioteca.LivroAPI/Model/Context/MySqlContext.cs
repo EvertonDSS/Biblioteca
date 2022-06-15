@@ -3,26 +3,28 @@
 namespace Biblioteca.LivroAPI.Model.Context
 {
     public class MySqlContext : DbContext
-	{
-		public MySqlContext() { }
+    {
+        public MySqlContext() { }
 
-		public MySqlContext(DbContextOptions<MySqlContext> options) : base(options) { } //Faz a busca da tabela no BD
+        public MySqlContext(DbContextOptions<MySqlContext> options) : base(options) { } //Faz a busca da tabela no BD
 
-		public DbSet<Livro> Livros { get; set; }
+        public DbSet<Livro> Livros { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //protected override void OnModelCreating(ModelBuilder modelbuilder)
         //{
-        //    modelBuilder.Entity<Livro>().HasData(new Livro
         //    {
-        //        Id = 1,
-        //        Titulo = "1984",
-        //        Genero = "Ficção - Distopia",
-        //        Autor = "George Orwell",
-        //        Editora = "Tricaju",
-        //        Descricao = String.Empty,
-        //        ImageUrl = String.Empty,
-        //        AnoPublicacao = "1949",
-        //    });
+        //        modelbuilder.Entity<Livro>().HasData(new Livro
+        //        {
+        //            Id = 1,
+        //            Titulo = "1984",
+        //            Genero = "ficção - distopia",
+        //            Autor = "george orwell",
+        //            Editora = "tricaju",
+        //            Descricao = string.Empty,
+        //            ImageUrl = string.Empty,
+        //            AnoPublicacao = "1949",
+        //        });
+        //    }
         //}
     }
 }
