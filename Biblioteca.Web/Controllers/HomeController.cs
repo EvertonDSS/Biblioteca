@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Web.Models;
+using Biblioteca.Web.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,15 +8,19 @@ namespace Biblioteca.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ILivroService _livroService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,
+            ILivroService livroService)
         {
             _logger = logger;
+            _livroService = livroService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var livros = await _livroService.FindAllLivros();
+            return View(livros);
         }
 
         public IActionResult Privacy()

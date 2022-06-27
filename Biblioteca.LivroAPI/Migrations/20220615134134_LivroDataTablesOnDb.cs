@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Biblioteca.LivroAPI.Migrations
+namespace Biblioteca.UsuarioAPI.Migrations
 {
     public partial class LivroDataTablesOnDb : Migration
     {

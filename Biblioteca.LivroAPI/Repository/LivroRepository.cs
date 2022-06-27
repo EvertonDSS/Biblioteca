@@ -37,6 +37,7 @@ namespace Biblioteca.LivroAPI.Repository
             await _context.SaveChangesAsync(); //Salvar as mudanças
             return _mapper.Map<LivroVO>(livro); //Retornar o resultado do mapeamento
         }     
+
         public async Task<LivroVO> Update(LivroVO vo) //Criar um novo livro
         {
             Livro livro = _mapper.Map<Livro>(vo); //Mapear o livro do tipo livro(id, titulo, autor, etc...)

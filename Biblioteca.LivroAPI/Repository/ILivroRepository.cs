@@ -1,6 +1,4 @@
 ﻿using Biblioteca.LivroAPI.Data.ValueObjects;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace Biblioteca.LivroAPI.Repository
 {

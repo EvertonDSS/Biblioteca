@@ -2,7 +2,7 @@
 using Biblioteca.LivroAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Biblioteca.LivroAPI.Controllers
+namespace Biblioteca.UsuarioAPI.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
