@@ -2,7 +2,7 @@
 {
     public class LivroModel
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string Titulo { get; set; }
         public string Genero { get; set; }
         public string Autor { get; set; }

@@ -29,10 +29,45 @@ namespace Biblioteca.Web.Controllers
         {
             if(ModelState.IsValid)
             {
-                var response = await _livroService.LivroCreate(model);
+                var response = await _livroService.CreateLivro(model);
                 if (response != null) return RedirectToAction(nameof(LivroIndex));
             }
             return View(model);
         }
+        
+        public async Task<IActionResult> LivroUpdate(int id)
+        {
+            var model = await _livroService.FindLivroById(id);
+            if(model != null) return View(model);
+            return NotFound();
+        }
+        
+        [HttpPut]
+        public async Task<IActionResult> LivroUpdate(LivroModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                var response = await _livroService.UpdateLivro(model);
+                if (response != null) return RedirectToAction(nameof(LivroIndex));
+            }
+            return View(model);
+        }
+        
+        public async Task<IActionResult> LivroDelete(int id)
+        {
+           var model = await _livroService.FindLivroById(id);
+           if(model != null) return View(model);
+           return NotFound();
+        }
+        
+        [HttpDelete]
+        public async Task<IActionResult> LivroDelete(LivroModel model)
+        {
+            var response = await _livroService.DeleteLivroById(model.Id);
+            if (response) return RedirectToAction(nameof(LivroIndex));
+            return View(model);
+        }
+
     }
+
 }
